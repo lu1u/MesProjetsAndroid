@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.lpi.simpleclock"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="0.9" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <receiver
+            android:name="com.lpi.simpleclock.SimpleClockWidgetProvider"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:logo="@drawable/ic_launcher" >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.lpi.simpleclock.Configuration" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="ColorPickerActivity" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Horloge Simple</string>
+    <string name="DialogFont">Fonte:</string>
+    <string name="DialogBtnFonte">Fonte...</string>
+    <string name="DialogCouleur">Couleur:</string>
+    <string name="couleurTexte">Couleur de texte:</string>
+    <string name="couleurFond">Couleur de fond:</string>
+    <string name="annuler">Annuler</string>
+    <string name="ok">OK</string>
+    <string name="ombre">ombre</string>
+</resources>
