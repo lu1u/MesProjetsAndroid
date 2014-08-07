@@ -3,22 +3,16 @@ package com.lpi.frequentlauncherwidget.service;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.lpi.frequentlauncherwidget.R;
-import com.lpi.frequentlauncherwidget.bdd.BDDOpenHelper;
 import com.lpi.frequentlauncherwidget.bdd.MySQLiteDatabase;
-import com.lpi.frequentlauncherwidget.widgetprovider.FrequentWidgetProvider;
 
 
 /**
@@ -31,7 +25,7 @@ abstract class  FrequentRemoteViewsFactory implements RemoteViewsService.RemoteV
 	protected int mAppWidgetId;
 	protected MySQLiteDatabase _bdd;
 
-	public static final String TAG = "StackRemoteViewsFactory";
+	//public static final String TAG = "StackRemoteViewsFactory";
 
 	public FrequentRemoteViewsFactory(Context context, Intent intent)
 	{
@@ -59,12 +53,17 @@ abstract class  FrequentRemoteViewsFactory implements RemoteViewsService.RemoteV
 	@Override
 	public int getCount()
 	{
-		Log.d(TAG, "getCount " + mCursor.getCount());
+		//Log.d(TAG, "getCount " + mCursor.getCount());
 		return mCursor.getCount();
 	}
 
 	
 
+	/***
+	 * Convert a Drawable object to a Bitmap object
+	 * @param drawable
+	 * @return
+	 */
 	public Bitmap drawableToBitmap(Drawable drawable)
 	{
 		if (drawable instanceof BitmapDrawable)
@@ -73,9 +72,9 @@ abstract class  FrequentRemoteViewsFactory implements RemoteViewsService.RemoteV
 		}
 
 		int width = drawable.getIntrinsicWidth();
-		width = width > 0 ? width : 1;
+		width = width > 0 ? width : 10 ;
 		int height = drawable.getIntrinsicHeight();
-		height = height > 0 ? height : 1;
+		height = height > 0 ? height : 10 ;
 
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);

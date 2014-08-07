@@ -9,7 +9,6 @@
 
 package com.lpi.frequentlauncherwidget;
 
-import java.util.Calendar;
 import java.util.List;
 
 import android.app.ActivityManager;
@@ -22,6 +21,7 @@ import android.util.Log;
 
 import com.lpi.frequentlauncherwidget.bdd.BDDOpenHelper;
 import com.lpi.frequentlauncherwidget.bdd.MySQLiteDatabase;
+import com.lpi.frequentlauncherwidget.service.FrequentRemoteViewsFactoryStack;
 import com.lpi.frequentlauncherwidget.widgetprovider.FrequentWidgetProvider;
 
 /**
@@ -90,7 +90,9 @@ public class FrequentDataProvider extends ContentProvider
 			{
 				if (_BDD == null)
 					_BDD = new MySQLiteDatabase(getContext());
-				int time = (int) (Calendar.getInstance().getTimeInMillis() / 1000L);
+				long time = System.currentTimeMillis() ;
+				Log.d(TAG, "Nlle app:" + cm + ", lancement " + FrequentRemoteViewsFactoryStack.getTime(getContext(), time));
+				Log.d(TAG, "time:" + time);
 				_BDD.IncrementeCompteur(cm, time, 1);
 				getContext().getContentResolver().notifyChange(CONTENT_URI, null);
 				FrequentWidgetProvider.SendRefresh(getContext());

@@ -9,7 +9,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.lpi.frequentlauncherwidget.R;
@@ -22,7 +21,7 @@ import com.lpi.frequentlauncherwidget.widgetprovider.FrequentWidgetProvider;
  */
 public class FrequentRemoteViewsFactoryListe extends FrequentRemoteViewsFactory
 {
-	public static final String TAG = "FrequentRemoteViewsFactoryListe" ;
+	//public static final String TAG = "FrequentRemoteViewsFactoryListe" ;
 	public FrequentRemoteViewsFactoryListe(Context context, Intent intent)
 	{
 		super(context, intent);
@@ -31,14 +30,14 @@ public class FrequentRemoteViewsFactoryListe extends FrequentRemoteViewsFactory
 	@Override
 	public int getViewTypeCount()
 	{
-		Log.d(TAG, "getViewTypeCount") ;
+		//Log.d(TAG, "getViewTypeCount") ;
 		return 2;
 	}
 
 	@Override
 	public RemoteViews getViewAt(int position)
 	{
-		Log.d(TAG, "getViewAt") ;
+		//Log.d(TAG, "getViewAt") ;
 		// Get the data for this position from the content provider
 		String application = ""; //$NON-NLS-1$
 		Drawable icon = null;

@@ -19,7 +19,7 @@ import com.lpi.frequentlauncherwidget.widgetprovider.FrequentWidgetProvider;
 
 public class FrequentRemoteViewsFactoryStack extends FrequentRemoteViewsFactory
 {
-	public static final String TAG = "FrequentRemoteViewsFactoryListe" ;
+	//public static final String TAG = "FrequentRemoteViewsFactoryStack" ;
 	
 	public FrequentRemoteViewsFactoryStack(Context context, Intent intent)
 	{
@@ -35,13 +35,13 @@ public class FrequentRemoteViewsFactoryStack extends FrequentRemoteViewsFactory
 	@Override
 	public RemoteViews getViewAt(int position)
 	{
-		Log.d(TAG, "getViewAt") ;
+		//Log.d(TAG, "getViewAt") ;
 		// Get the data for this position from the content provider
 		String application = "";
 		Drawable icon = null;
 		String componentname = null;
 		int nbLancements = 0;
-		int dernierLancement = 0;
+		long dernierLancement = 0;
 		final int nbLancementColIndex = mCursor.getColumnIndex(BDDOpenHelper.COLONNE_NB_LANCEMENTS);
 		final int dernierLancementColIndex = mCursor.getColumnIndex(BDDOpenHelper.COLONNE_DERNIER_LANCEMENT);
 
@@ -51,7 +51,7 @@ public class FrequentRemoteViewsFactoryStack extends FrequentRemoteViewsFactory
 			final int cmpNameColIndex = mCursor.getColumnIndex(BDDOpenHelper.COLONNE_COMPONENT_NAME);
 			componentname = mCursor.getString(cmpNameColIndex);
 			nbLancements = mCursor.getInt(nbLancementColIndex);
-			dernierLancement = mCursor.getInt(dernierLancementColIndex);
+			dernierLancement = mCursor.getLong(dernierLancementColIndex);
 
 			try
 			{
@@ -64,8 +64,6 @@ public class FrequentRemoteViewsFactoryStack extends FrequentRemoteViewsFactory
 			}
 		}
 
-		// final int layoutId = (position % 2 == 0 ? R.layout.light_widget_item_stack :
-		// R.layout.dark_widget_item_stack);
 		final int layoutId = R.layout.dark_widget_item_stack;
 		RemoteViews rv = new RemoteViews(mContext.getPackageName(), layoutId);
 
@@ -82,7 +80,10 @@ public class FrequentRemoteViewsFactoryStack extends FrequentRemoteViewsFactory
 		if (icon != null)
 			rv.setImageViewBitmap(R.id.imageView1, drawableToBitmap(icon));
 		
+		// Placer les listeners pour reagir en cas de clic
 		rv.setOnClickFillInIntent(R.id.widget_item, fillInIntent);
+		rv.setOnClickFillInIntent(R.id.nb_lancements, fillInIntent);
+		rv.setOnClickFillInIntent(R.id.datedernierlancement, fillInIntent);
 		rv.setOnClickFillInIntent(R.id.imageView1, fillInIntent);
 
 		return rv;

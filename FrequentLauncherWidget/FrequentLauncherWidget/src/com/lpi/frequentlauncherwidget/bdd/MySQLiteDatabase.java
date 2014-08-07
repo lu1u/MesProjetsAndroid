@@ -45,7 +45,7 @@ public class MySQLiteDatabase
 	 * Incremente le compteur de lancement d'une application, creer l'enregistrement si il n'existe pas
 	 */
 	@SuppressWarnings("nls")
-	public void IncrementeCompteur( String componentName, int time, int id )
+	public void IncrementeCompteur( String componentName, long time, int id )
 	{
 		try
 		{
@@ -64,7 +64,7 @@ public class MySQLiteDatabase
 				ContentValues insertValues = new ContentValues();
 				insertValues.put(BDDOpenHelper.COLONNE_COMPONENT_NAME, componentName);
 				insertValues.put(BDDOpenHelper.COLONNE_NB_LANCEMENTS, Integer.valueOf(1));
-				insertValues.put(BDDOpenHelper.COLONNE_DERNIER_LANCEMENT, Integer.valueOf(time));
+				insertValues.put(BDDOpenHelper.COLONNE_DERNIER_LANCEMENT, Long.valueOf(time));
 				insertValues.put(BDDOpenHelper.COLONNE_DERNIER_ID, Integer.valueOf(id));
 				_bdd.insert(BDDOpenHelper.TABLE_LANCEMENTS, null, insertValues);
 				}
