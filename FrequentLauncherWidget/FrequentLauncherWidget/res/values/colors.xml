@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fond_actionbar">#88000000</color>
+    <color name="fond_liste">#66000000</color>
+    <color name="texte">#FFFFFFFF</color>
+    <color name="fond_ligne_dark_stack">#DD111111</color>
+    <color name="fond_ligne_dark">#22000000</color>
+    <color name="fond_ligne_light">#22FFFFFF</color>
+    
+</resources>

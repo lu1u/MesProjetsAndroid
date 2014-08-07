@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="empty_view_text">Pas d\'application&#8230;</string>
+    <string name="erreur_format_string">Impossible de lancer l\'application %1$s, erreur: %2$s</string>
+    <string name="item_format_string">%2$s (%1$d)</string>
+    <string name="launching">Lancement de %1$s</string>
+    <string name="sortfrequency">Tri par fréquence de lancement</string>
+    <string name="sortdate">Tri par date de dernier lancement</string>
+    <string name="annuler">Annuler</string>
+    <string name="chargement_applications">Recherche des applications installées</string>
+    <string name="enregistrement_configuration">Enregistrement de la configuration</string>
+    <string name="patientez">Merci de patienter&#8230;</string>
+    <string name="selectionner">Sélectionner les applications à exclure.\n(Elles pourront toujours être lancées depuis votre launcher mais n\'apparaitront pas dans ce widget)</string>
+    <string name="check_if_excluded">Cochez cette ligne si vous ne voulez pas voir apparaitre l\'application dans le widget</string>
+    <string name="dateformat">Dernier lancement le %1$s à %2$s</string>
+    <string name="nblancementformat">Lancé %1$d fois</string>
+
+</resources>

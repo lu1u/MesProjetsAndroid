@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="exclues">
+        <item>"android"</item>
+        <item>"com.android.backupconfirm"</item>
+        <item>"com.android.certinstaller"</item>
+        <item>"com.android.defcontainer"</item>
+        <item>"com.android.development"</item>
+        <item>"com.android.emulator.connectivity.test"</item>
+        <item>"com.android.emulator.gps.test"</item>
+        <item>"com.android.exchange"</item>
+        <item>"com.android.gesture.builder"</item>
+        <item>"com.android.launcher"</item>
+        <item>"com.android.packageinstaller"</item>
+        <item>"com.android.providers.applications"</item>
+        <item>"com.android.providers.downloads"</item>
+        <item>"com.android.providers.downloads.ui"</item>
+        <item>"com.android.providers.drm"</item>
+        <item>"com.android.providers.settings"</item>
+        <item>"com.android.providers.telephony"</item>
+        <item>"com.android.providers.userdictionary"</item>
+        <item>"com.android.quicksearchbox"</item>
+        <item>"com.android.sdksetup"</item>
+        <item>"com.android.sharedstoragebackup"</item>
+        <item>"com.android.smoketest"</item>
+        <item>"com.android.smoketest.tests"</item>
+        <item>"com.android.speechrecorder"</item>
+        <item>"com.android.wallpaper.livepicker"</item>
+        <item>"com.example.android.apis"</item>
+        <item>"com.example.android.livecubes"</item>
+        <item>"com.example.android.softkeyboard"</item>
+        <item>"com.lpi.frequentlauncherwidget"</item>
+        <item>"com.svox.pico"</item>
+        <item>"jp.co.omronsoft.openwnn"</item>
+        <item>"com.android.facelock"</item>
+        <item>"com.android.galaxy4"</item>
+        <item>"com.android.keychain"</item>
+        <item>"com.android.magicsmoke"</item>
+        <item>"com.android.musicfx"</item>
+        <item>"com.android.musicvis"</item>
+        <item>"com.android.phasebeam"</item>
+        <item>"com.android.protips"</item>
+        <item>"com.android.providers.calendar"</item>
+        <item>"com.android.providers.contacts"</item>
+        <item>"com.android.providers.media"</item>
+        <item>"com.android.simmelock"</item>
+        <item>"com.android.stk"</item>
+        <item>"com.android.stk2"</item>
+        <item>"com.android.systemui"</item>
+        <item>"com.android.vpndialogs"</item>
+        <item>"com.android.wallpapers"</item>
+        <item>"com.android.holospiral"</item>
+        <item>"com.android.providers.contacts"</item>
+        <item>"com.gau.go.launcherex"</item>
+        <item>"com.gau.go.launcherex.language.fr"</item>
+        <item>"com.gau.go.launcherex.notification"</item>
+        <item>"com.google.android.apps.uploader"</item>
+        <item>"com.google.android.backup"</item>
+        <item>"com.google.android.feedback"</item>
+    </string-array>
+
+</resources>

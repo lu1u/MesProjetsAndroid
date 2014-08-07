@@ -20,10 +20,10 @@ import com.lpi.simpleclock.colorpicker.ValueBar;
 public class ColorPickerActivity extends Activity
 {
 
-	public static final String COULEUR = "couleur";
+	public static final String COULEUR = "couleur"; //$NON-NLS-1$
 	static final int RESULT_CODE_COULEUR = 1;
-	public static final String TYPE_COULEUR = "typecouleur";
-	private String _typeCouleur = "inconnu" ;
+	public static final String TYPE_COULEUR = "typecouleur"; //$NON-NLS-1$
+	private String _typeCouleur = "inconnu" ; //$NON-NLS-1$
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
