@@ -120,6 +120,7 @@ public class SimpleClockWidgetProvider extends AppWidgetProvider
 	 * @param context
 	 * @param intent
 	 */
+	/*
 	private void handleResize(Context context, Intent intent)
 	{
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
@@ -127,7 +128,7 @@ public class SimpleClockWidgetProvider extends AppWidgetProvider
 		int[] widgetIds = appWidgetManager.getAppWidgetIds(widgetComponent);
 		appWidgetManager.updateAppWidget(widgetIds, new RemoteViews(context.getPackageName(), R.layout.widgetlayout));
 	}
-
+*/
 	/*
 	 * (non-Javadoc)
 	 * @see android.appwidget.AppWidgetProvider#onAppWidgetOptionsChanged(android .content.Context,

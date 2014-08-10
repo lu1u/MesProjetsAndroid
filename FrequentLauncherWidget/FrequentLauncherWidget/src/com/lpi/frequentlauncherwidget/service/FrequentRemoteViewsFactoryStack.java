@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.lpi.frequentlauncherwidget.R;
