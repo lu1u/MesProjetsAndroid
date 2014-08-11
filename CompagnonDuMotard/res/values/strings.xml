@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Biker\'s companion</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="vitesse">vitesse</string>
+    <string name="alerte_vitesse">alerte_vitesse</string>
+    <string name="vitesse_max">vitesse_max</string>
+    <string name="bikercompagnion_app">Biker\'s companion</string>
+    <string name="startTrip">Start, autonomy is %1d kilometers</string>
+    <string name="stopTrip">Stop</string>
+    <string name="TrajetDemarre">Trip started</string>
+    <string name="TrajetArrete">Trip stopped</string>
+    <string name="pause">Pause</string>
+    <string name="pauseFinished">Pause finished</string>
+    <string name="formatOnSMS">New SMS, from %1$s. %2$s</string>
+    <string name="unknownContact">unknown %1$s</string>
+    <string name="incoming_call">Telephon call from %1$s</string>
+    <string name="lowbattery">Battery weak %1$d %</string>
+    <string name="toofast">Too fast! %1$s kilometers per hour</string>
+    <string name="announceHour">It is %1$d hour %2$d minutes</string>
+    <string name="halftank">Tank is half full</string>
+    <string name="quartertank">Tank is one quarter full</string>
+    <string name="gpsdeactivated">Warning, GPS deactivated</string>
+  	<string name="timeforpause">It\'s time for a break</string>
+  	<string name="odometer">Kilometers : %1$s\nLeft: %2$s</string>
+  	
+
+    <!--- Texte des boutons de l'interface -->
+    <string name="btnstarttrip">Start</string>
+    <string name="btnstoptrip">Stop</string>
+    <string name="btnpause">Pause</string>
+    <string name="btnenpause">Pause</string>
+    <string name="btnFillTank">Tank filled</string>
+    <string name="btnPreferences">Preferences</string>
+    <string name="btnVocal">Speech...</string>
+    <string name="btnAudio">Audio...</string>
+
+</resources>

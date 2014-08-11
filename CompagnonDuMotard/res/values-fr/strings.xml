@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Biker\'s companion</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="vitesse">vitesse</string>
+    <string name="alerte_vitesse">alerte_vitesse</string>
+    <string name="vitesse_max">vitesse_max</string>
+    <string name="bikercompagnion_app">Le compagnon du motard</string>
+    <string name="tankFixed">Plein effectué, l\'autonomie est de %1d kilomètres</string>
+    <string name="startTrip">Démarrage, l\'autonomie est de %1d kilomètres</string>
+    <string name="stopTrip">Arrêt</string>
+    <string name="TrajetArrete">Trajet arrêté</string>
+    <string name="pause">Pause</string>
+    <string name="pauseFinished">Pause terminée</string>
+    <string name="formatOnSMS">Nouveau SMS, de %1$s. %2$s</string>
+    <string name="unknownContact">contact inconnu %1$s</string>
+    <string name="incoming_call">Appel téléphonique de %1$s</string>
+    <string name="lowbattery">Batterie faible %1$d %</string>
+    <string name="toofast">Trop vite! %1$s kilomètres heure</string>
+    <string name="timeforpause">Il est temps de faire une pause!</string>
+    <string name="announceHour">Il est %1$d heures %2$d minutes</string>
+    <string name="halftank">Réservoir à  moitié plein</string>
+    <string name="quartertank">Réservoir au trois quart vide</string>
+    <string name="gpsdeactivated">Attention! GPS désactivé</string>
+    <string name="btnpause">Pause</string>
+    <string name="btnenpause">Pause</string>
+    <string name="btnFillTank">Plein d\'essence</string>
+    <string name="btnPreferences">Préférences</string>
+    <string name="btnVocal">Vocal...</string>
+    <string name="btnAudio">Audio...</string>
+	<string name="odometer">Kilomètres : %1$s\nAutonomie: %2$s</string>
+  	
+    
+</resources>

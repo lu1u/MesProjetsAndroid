@@ -1,0 +1,89 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewOdometer"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_weight="0.2"
+        android:text="Dist: 0km\nAutonomie: 0km"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/buttonDemarrage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:clickable="true"
+        android:drawableStart="@drawable/ic_av_start"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="OnClicDemarrageArret"
+        android:soundEffectsEnabled="true"
+        android:text="@string/btnstarttrip"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonPause"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:drawableStart="@drawable/ic_av_pause"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/btnpause" />
+
+    <Button
+        android:id="@+id/buttonPlein"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:drawableStart="@drawable/ic_plein_essence_icon"
+        android:focusable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="OnClickPlein"
+        android:text="@string/btnFillTank" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/btnPreferences"
+            android:id="@+id/buttonPreferences"
+            android:layout_weight="0.332"
+            android:onClick="OnClickPreferences"
+            android:drawableBottom="@drawable/ic_settings"
+            android:textSize="14dp" />
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/btnVocal"
+            android:id="@+id/buttonVocal"
+            android:layout_weight="0.332"
+            android:onClick="OnClickVocal"
+            android:drawableBottom="@drawable/ic_speech"
+            android:textSize="14dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/btnAudio"
+            android:id="@+id/buttonAudio"
+            android:layout_weight="0.332"
+            android:onClick="OnClickAudio"
+            android:drawableBottom="@drawable/ic_audio"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+</LinearLayout>

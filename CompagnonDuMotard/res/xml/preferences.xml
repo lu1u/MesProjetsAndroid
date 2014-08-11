@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:defaultValue="130"
+        android:entries="@array/listeVitesses"
+        android:entryValues="@array/listeVitessesValues"
+        android:key="vitesse_max"
+        android:summary="Détermine la vitesse à partir de laquelle vous recevez une alerte"
+        android:title="Alerte de survitesse" />
+
+    <PreferenceCategory
+        android:key="autonomie"
+        android:title="Autonomie" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="alerte_mireservoir"
+            android:summary="Affiche une alerte quand le réservoir est à moitié vide"
+            android:title="Alerte à 1/2 réservoir" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="alerte_quartreservoir"
+            android:summary="Affiche une alerte quand il ne reste plus que le quart du réservoir"
+            android:title="Alerte à 1/4 réservoir" />
+
+        <EditTextPreference
+            android:defaultValue="300"
+            android:dialogMessage="Autonomie approximative permise par le réservoir"
+            android:dialogTitle="Autonomie"
+            android:key="autonomie"
+            android:numeric="integer"
+            android:summary="Définit l&apos;autonomie approximative permise par le réservoir"
+            android:title="Autonomie" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pauses"
+        android:title="Pauses" >
+       <ListPreference
+            android:defaultValue="120"
+            android:entries="@array/listePauses"
+            android:entryValues="@array/listePausesValues"
+            android:key="delai_pauses"
+            android:summary="Vous conseille de faire régulièrement une pause"
+            android:title="Délai entre chaque pause" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="heure"
+        android:title="Heure" >
+        <ListPreference
+            android:defaultValue="15"
+            android:entries="@array/listeMinutes"
+            android:entryValues="@array/listeMinutesValues"
+            android:key="delai_minutes"
+            android:summary="Vous annonce régulièrement l&apos;heure"
+            android:title="Annoncer l&apos;heure tout les" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="communication"
+        android:title="Communication" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="lire_sms"
+            android:summary="Lit les SMS entrants"
+            android:title="Lire SMS" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="se_taire_telephone"
+            android:summary="Attention! Il est dangereux et interdit de téléphoner en roulant"
+            android:title="Se taire si le téléphone est décroché" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

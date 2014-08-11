@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="listeVitesses">
+        <item name="0">Pas d\'alerte de survitesse</item>
+        <item name="50">50 km/h</item>
+        <item name="70">70 km/h</item>
+        <item name="90">90 km/h</item>
+        <item name="100">100 km/h</item>
+        <item name="110">110 km/h</item>
+        <item name="120">120 km/h</item>
+        <item name="130">130 km/h</item>
+        <item name="140">140 km/h</item>
+        <item name="150">150 km/h</item>
+        <item name="200">200 km/h</item>
+        <item name="250">250 km/h</item>
+        <item name="300">300 km/h</item>
+    </string-array>
+    <string-array name="listeVitessesValues">
+        <item name="0">0</item>
+        <item name="50">50</item>
+        <item name="70">70</item>
+        <item name="90">90</item>
+        <item name="100">100</item>
+        <item name="110">110</item>
+        <item name="120">120</item>
+        <item name="130">130</item>
+        <item name="140">140</item>
+        <item name="150">150</item>
+        <item name="200">200</item>
+        <item name="250">250</item>
+        <item name="300">300</item>
+    </string-array>
+    <string-array name="listePauses">
+        <item name="0">Pas d\'alerte pour les pauses</item>
+        <item name="30">30 minutes</item>
+        <item name="60">1 heure</item>
+        <item name="90">1 heure 30</item>
+        <item name="120">2 heures</item>
+        <item name="180">3 heures</item>
+    </string-array>
+    <string-array name="listePausesValues">
+        <item name="0">0</item>
+        <item name="30">30</item>
+        <item name="60">60</item>
+        <item name="90">90</item>
+        <item name="120">120</item>
+        <item name="180">180</item>
+    </string-array>
+    <string-array name="listeMinutes">
+        <item name="jamais">Jamais</item>
+        <item name="30">15 minutes</item>
+        <item name="30">30 minutes</item>
+        <item name="60">1 heure</item>
+    </string-array>
+    <string-array name="listeMinutesValues">
+        <item name="jamais">0</item>
+        <item name="30">15</item>
+        <item name="30">30</item>
+        <item name="60">60</item>
+    </string-array>
+
+</resources>
