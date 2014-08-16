@@ -24,7 +24,7 @@ public class SMSObserver extends ContentObserver {
 	@Override
 	public void onChange(boolean selfChange) {
 		if (service != null)
-			service.OnSMS() ;
+			service.onSMS() ;
 	}
 
 

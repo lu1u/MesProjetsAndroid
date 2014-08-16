@@ -29,6 +29,7 @@ public class PersistentData {
     final static String DATA_DERNIERE_ALERTE_VITESSE = "DerniereAlerteVitesse"; 
     final static String DATA_DERNIEREHEUREPAUSE = "DerniereHeurePause"; 
     final static String DATA_DISTANCEPARCOURUE = "DistanceParcourue"; 
+    final static String DATA_AUTONOMIE = "Autonomie"; 
     final static String DATA_DERNIEREALARME = "DerniereAlarme"; 
     final static String DATA_HEUREDEPART = "HeureDepart"; 
     final static String DATA_ANNONCEBATTERIEFAIBLE = "AnnonceBatterieFaible"; 
@@ -50,56 +51,71 @@ public class PersistentData {
     public boolean _AnnonceDemiReservoir;
     public boolean _AnnonceBatterieFaible;
     public boolean _modifie ;           //
+	public long _Autonomie;
 
     public static final String TAG = "PersistentData" ;
 
-    public PersistentData( Context c )
+    public PersistentData( Context context )
     {
-        SharedPreferences settings 			= PreferenceManager.getDefaultSharedPreferences(c) ; 
+        SharedPreferences settings 			= GetPreferences(context) ;
        
         _DernierSMS             =   settings.getLong( DATA_DERNIERSMS, 0 ) ;
         _DerniereHeurePause 	=   settings.getLong( DATA_DERNIEREHEUREPAUSE, 0 ) ;
         _DistanceParcourue      =   settings.getLong(DATA_DISTANCEPARCOURUE, 0) ;
+        _Autonomie				=   settings.getLong(DATA_AUTONOMIE, 0) ;
         _DerniereAlerteVitesse  =   settings.getLong(DATA_DERNIERE_ALERTE_VITESSE, 0) ;
         _HeureDepart            =   settings.getLong(DATA_HEUREDEPART, 0) ;
         _DerniereHeureAlarme    =   settings.getLong(DATA_DERNIEREALARME, 0) ;
         _AnnonceDemiReservoir   =   settings.getBoolean(DATA_ANNONCEDEMIRESERVOIR, false) ;
-        _AnnonceQuartReservoir   =   settings.getBoolean(DATA_ANNONCEQUARTRESERVOIR, false) ;
+        _AnnonceQuartReservoir  =   settings.getBoolean(DATA_ANNONCEQUARTRESERVOIR, false) ;
         _AnnonceBatterieFaible  =   settings.getBoolean(DATA_ANNONCEBATTERIEFAIBLE, false) ;
         _modifie = false ;
-        
+        /*
         Log.d(TAG, "Read persistent data" ) ;
         Log.d(TAG, "DernierSMS " + CompanionService.toHourString(_DernierSMS)) ;
         Log.d(TAG, "Dernier pause " + CompanionService.toHourString(_DerniereHeurePause)) ;
         Log.d(TAG, "Dernier alerte vitesse " + CompanionService.toHourString(_DerniereAlerteVitesse)) ;
         Log.d(TAG, "Heure depart " + CompanionService.toHourString(_HeureDepart)) ;
-        Log.d(TAG, "Distance parcourue " + CompanionService.toHourString(_DistanceParcourue)) ;
+        Log.d(TAG, "Distance parcourue " + _DistanceParcourue) ;
         Log.d(TAG, "Annonce Demi Reservoir" + _AnnonceDemiReservoir ) ; 
         Log.d(TAG, "Annonce Quart Reservoir" + _AnnonceQuartReservoir ) ; 
         Log.d(TAG, "Annonce Batterie faible" + _AnnonceBatterieFaible) ; 
+        */
     }
 
+/***
+ * Retourne un objet qui permettra d'acceder aux donnees persistantes
+ * @param context
+ * @return
+ */
+    private SharedPreferences GetPreferences( Context context )
+	{
+		return context.getSharedPreferences( CACHE_NAME, Context.MODE_PRIVATE );
+	}
 
-    public void Flush(Context c)
+
+	public void Flush( Context context )
     {
         if ( ! _modifie )
             return ;
-        SharedPreferences settings = c.getSharedPreferences( CACHE_NAME, Context.MODE_PRIVATE );
+        
+        SharedPreferences settings = GetPreferences( context ) ;
         SharedPreferences.Editor editor = settings.edit();
-
+/*
         Log.d(TAG, "Save persistent data" ) ;
         Log.d(TAG, "DernierSMS " + CompanionService.toHourString(_DernierSMS)) ;
         Log.d(TAG, "Dernier pause " + CompanionService.toHourString(_DerniereHeurePause)) ;
         Log.d(TAG, "Dernier alerte vitesse " + CompanionService.toHourString(_DerniereAlerteVitesse)) ;
         Log.d(TAG, "Heure depart " + CompanionService.toHourString(_HeureDepart)) ;
-        Log.d(TAG, "Distance parcourue " + CompanionService.toHourString(_DistanceParcourue)) ;
+        Log.d(TAG, "Distance parcourue " + _DistanceParcourue) ;
         Log.d(TAG, "Annonce Demi Reservoir" + _AnnonceDemiReservoir ) ; 
         Log.d(TAG, "Annonce Quart Reservoir" + _AnnonceQuartReservoir ) ; 
         Log.d(TAG, "Annonce Batterie faible" + _AnnonceBatterieFaible) ; 
-    
+    */
         editor.putLong( DATA_DERNIERSMS, _DernierSMS ) ;
         editor.putLong( DATA_DERNIEREHEUREPAUSE, _DerniereHeurePause) ;
         editor.putLong( DATA_DISTANCEPARCOURUE, _DistanceParcourue) ;
+        editor.putLong( DATA_AUTONOMIE, _Autonomie) ;
         editor.putLong( DATA_DERNIERE_ALERTE_VITESSE, _DerniereAlerteVitesse) ;
         editor.putLong( DATA_HEUREDEPART, _HeureDepart) ;
         editor.putLong( DATA_DERNIEREALARME, _DerniereHeureAlarme) ;
@@ -113,7 +129,7 @@ public class PersistentData {
 
     public int LitDernieresPositions(Context context, Location[] locations)
     {
-        SharedPreferences settings = context.getSharedPreferences(CACHE_NAME, Context.MODE_PRIVATE );
+        SharedPreferences settings = GetPreferences(context) ;
         int NbPositions = settings.getInt(PersistentData.DATA_NBPOSITIONS, 0);
 
         for (int i = 0; i < NbPositions; i++)
@@ -140,7 +156,7 @@ public class PersistentData {
      */
     public void EcritDernieresPositions(Context context, Location[] locations, int NbPositions)
     {
-        SharedPreferences settings = context.getSharedPreferences(PersistentData.CACHE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences settings = GetPreferences(context) ;
         SharedPreferences.Editor editor = settings.edit();
 
         editor.putInt(PersistentData.DATA_NBPOSITIONS, NbPositions);

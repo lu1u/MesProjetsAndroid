@@ -18,78 +18,183 @@ public final class R {
     }
     public static final class attr {
     }
+    public static final class color {
+        public static final int background=0x7f060000;
+        public static final int button_border_disabled=0x7f06000a;
+        public static final int button_border_pause=0x7f060004;
+        public static final int button_border_plein=0x7f060006;
+        public static final int button_border_pressed=0x7f060008;
+        public static final int button_border_startstop=0x7f060002;
+        public static final int button_disabled=0x7f060009;
+        public static final int button_pause=0x7f060003;
+        public static final int button_plein=0x7f060005;
+        public static final int button_pref_border_disabled=0x7f060010;
+        public static final int button_pref_border_normal=0x7f06000c;
+        public static final int button_pref_border_pressed=0x7f06000e;
+        public static final int button_pref_disabled=0x7f06000f;
+        public static final int button_pref_normal=0x7f06000b;
+        public static final int button_pref_pressed=0x7f06000d;
+        public static final int button_pressed=0x7f060007;
+        public static final int button_startstop=0x7f060001;
+        public static final int message_border_normal=0x7f060012;
+        public static final int message_normal=0x7f060011;
+    }
     public static final class dimen {
+        public static final int button_border=0x7f070006;
+        public static final int button_pref_border=0x7f070007;
+        public static final int corner_bottom_left=0x7f070004;
+        public static final int corner_bottom_right=0x7f070005;
+        public static final int corner_top_left=0x7f070002;
+        public static final int corner_top_right=0x7f070003;
+        public static final int marge_boutons=0x7f070009;
+        public static final int message_border=0x7f070008;
+        public static final int taille_texte_message=0x7f070001;
         /**  Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int taille_texte_odometre=0x7f070000;
     }
     public static final class drawable {
-        public static final int ic_audio=0x7f020000;
-        public static final int ic_av_pause=0x7f020001;
-        public static final int ic_av_plein=0x7f020002;
-        public static final int ic_av_start=0x7f020003;
-        public static final int ic_av_stop=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int ic_plein_essence_icon=0x7f020006;
-        public static final int ic_settings=0x7f020007;
-        public static final int ic_speech=0x7f020008;
-        public static final int ic_stat_notification=0x7f020009;
-        public static final int startstop=0x7f02000a;
+        public static final int apptheme_btn_check_off_disabled_focused_holo_light=0x7f020000;
+        public static final int apptheme_btn_check_off_disabled_holo_light=0x7f020001;
+        public static final int apptheme_btn_check_off_focused_holo_light=0x7f020002;
+        public static final int apptheme_btn_check_off_holo_light=0x7f020003;
+        public static final int apptheme_btn_check_off_pressed_holo_light=0x7f020004;
+        public static final int apptheme_btn_check_on_disabled_focused_holo_light=0x7f020005;
+        public static final int apptheme_btn_check_on_disabled_holo_light=0x7f020006;
+        public static final int apptheme_btn_check_on_focused_holo_light=0x7f020007;
+        public static final int apptheme_btn_check_on_holo_light=0x7f020008;
+        public static final int apptheme_btn_check_on_pressed_holo_light=0x7f020009;
+        public static final int apptheme_btn_default_disabled_focused_holo_light=0x7f02000a;
+        public static final int apptheme_btn_default_disabled_holo_light=0x7f02000b;
+        public static final int apptheme_btn_default_focused_holo_light=0x7f02000c;
+        public static final int apptheme_btn_default_normal_holo_light=0x7f02000d;
+        public static final int apptheme_btn_default_pressed_holo_light=0x7f02000e;
+        public static final int apptheme_btn_radio_off_disabled_focused_holo_light=0x7f02000f;
+        public static final int apptheme_btn_radio_off_disabled_holo_light=0x7f020010;
+        public static final int apptheme_btn_radio_off_focused_holo_light=0x7f020011;
+        public static final int apptheme_btn_radio_off_holo_light=0x7f020012;
+        public static final int apptheme_btn_radio_off_pressed_holo_light=0x7f020013;
+        public static final int apptheme_btn_radio_on_disabled_focused_holo_light=0x7f020014;
+        public static final int apptheme_btn_radio_on_disabled_holo_light=0x7f020015;
+        public static final int apptheme_btn_radio_on_focused_holo_light=0x7f020016;
+        public static final int apptheme_btn_radio_on_holo_light=0x7f020017;
+        public static final int apptheme_btn_radio_on_pressed_holo_light=0x7f020018;
+        public static final int apptheme_btn_toggle_off_disabled_focused_holo_light=0x7f020019;
+        public static final int apptheme_btn_toggle_off_disabled_holo_light=0x7f02001a;
+        public static final int apptheme_btn_toggle_off_focused_holo_light=0x7f02001b;
+        public static final int apptheme_btn_toggle_off_normal_holo_light=0x7f02001c;
+        public static final int apptheme_btn_toggle_off_pressed_holo_light=0x7f02001d;
+        public static final int apptheme_btn_toggle_on_disabled_focused_holo_light=0x7f02001e;
+        public static final int apptheme_btn_toggle_on_disabled_holo_light=0x7f02001f;
+        public static final int apptheme_btn_toggle_on_focused_holo_light=0x7f020020;
+        public static final int apptheme_btn_toggle_on_normal_holo_light=0x7f020021;
+        public static final int apptheme_btn_toggle_on_pressed_holo_light=0x7f020022;
+        public static final int apptheme_list_activated_holo=0x7f020023;
+        public static final int apptheme_list_focused_holo=0x7f020024;
+        public static final int apptheme_list_longpressed_holo=0x7f020025;
+        public static final int apptheme_list_pressed_holo_light=0x7f020026;
+        public static final int apptheme_list_selector_disabled_holo_light=0x7f020027;
+        public static final int apptheme_rate_star_big_half_holo_light=0x7f020028;
+        public static final int apptheme_rate_star_big_off_holo_light=0x7f020029;
+        public static final int apptheme_rate_star_big_on_holo_light=0x7f02002a;
+        public static final int apptheme_spinner_default_holo_light=0x7f02002b;
+        public static final int apptheme_spinner_disabled_holo_light=0x7f02002c;
+        public static final int apptheme_spinner_focused_holo_light=0x7f02002d;
+        public static final int apptheme_spinner_pressed_holo_light=0x7f02002e;
+        public static final int apptheme_text_select_handle_left=0x7f02002f;
+        public static final int apptheme_text_select_handle_middle=0x7f020030;
+        public static final int apptheme_text_select_handle_right=0x7f020031;
+        public static final int apptheme_textfield_activated_holo_light=0x7f020032;
+        public static final int apptheme_textfield_default_holo_light=0x7f020033;
+        public static final int apptheme_textfield_disabled_focused_holo_light=0x7f020034;
+        public static final int apptheme_textfield_disabled_holo_light=0x7f020035;
+        public static final int apptheme_textfield_focused_holo_light=0x7f020036;
+        public static final int background=0x7f020037;
+        public static final int button_pref_selector=0x7f020038;
+        public static final int button_selector_pause=0x7f020039;
+        public static final int button_selector_plein=0x7f02003a;
+        public static final int button_selector_start=0x7f02003b;
+        public static final int buttonshape_disabled=0x7f02003c;
+        public static final int buttonshape_pause=0x7f02003d;
+        public static final int buttonshape_pause_pressed=0x7f02003e;
+        public static final int buttonshape_plein=0x7f02003f;
+        public static final int buttonshape_plein_pressed=0x7f020040;
+        public static final int buttonshape_pref_disabled=0x7f020041;
+        public static final int buttonshape_pref_normal=0x7f020042;
+        public static final int buttonshape_pref_pressed=0x7f020043;
+        public static final int buttonshape_startstop=0x7f020044;
+        public static final int buttonshape_startstop_pressed=0x7f020045;
+        public static final int ic_audio=0x7f020046;
+        public static final int ic_launcher=0x7f020047;
+        public static final int ic_pause=0x7f020048;
+        public static final int ic_plein_essence_icon=0x7f020049;
+        public static final int ic_settings=0x7f02004a;
+        public static final int ic_speech=0x7f02004b;
+        public static final int ic_start=0x7f02004c;
+        public static final int ic_stat_notification=0x7f02004d;
+        public static final int ic_stop=0x7f02004e;
+        public static final int messageshape_normal=0x7f02004f;
     }
     public static final class id {
-        public static final int buttonAudio=0x7f090006;
-        public static final int buttonDemarrage=0x7f090001;
-        public static final int buttonPause=0x7f090002;
-        public static final int buttonPlein=0x7f090003;
-        public static final int buttonPreferences=0x7f090004;
-        public static final int buttonVocal=0x7f090005;
-        public static final int textViewOdometer=0x7f090000;
+        public static final int buttonAudio=0x7f0a0007;
+        public static final int buttonDemarrage=0x7f0a0002;
+        public static final int buttonPause=0x7f0a0003;
+        public static final int buttonPlein=0x7f0a0004;
+        public static final int buttonPreferences=0x7f0a0005;
+        public static final int buttonVocal=0x7f0a0006;
+        public static final int textViewMessage=0x7f0a0000;
+        public static final int textViewOdometer=0x7f0a0001;
     }
     public static final class layout {
         public static final int activity_tableau_de_bord=0x7f030000;
+        public static final int test=0x7f030001;
     }
     public static final class string {
-        public static final int TrajetArrete=0x7f070009;
-        public static final int TrajetDemarre=0x7f070008;
-        public static final int action_settings=0x7f070001;
-        public static final int alerte_vitesse=0x7f070003;
-        public static final int announceHour=0x7f070011;
-        public static final int app_name=0x7f070000;
-        public static final int bikercompagnion_app=0x7f070005;
-        public static final int btnAudio=0x7f07001e;
-        public static final int btnFillTank=0x7f07001b;
-        public static final int btnPreferences=0x7f07001c;
-        public static final int btnVocal=0x7f07001d;
-        public static final int btnenpause=0x7f07001a;
-        public static final int btnpause=0x7f070019;
+        public static final int TrajetArrete=0x7f080009;
+        public static final int TrajetDemarre=0x7f080008;
+        public static final int action_settings=0x7f080001;
+        /**   alertes 
+         */
+        public static final int alertNoTTS=0x7f08001f;
+        public static final int alerte_vitesse=0x7f080003;
+        public static final int announceHour=0x7f080011;
+        public static final int app_name=0x7f080000;
+        public static final int bikercompagnion_app=0x7f080005;
+        public static final int btnAudio=0x7f08001e;
+        public static final int btnFillTank=0x7f08001b;
+        public static final int btnPreferences=0x7f08001c;
+        public static final int btnVocal=0x7f08001d;
+        public static final int btnenpause=0x7f08001a;
+        public static final int btnpause=0x7f080019;
         /** - Texte des boutons de l'interface 
          */
-        public static final int btnstarttrip=0x7f070017;
-        public static final int btnstoptrip=0x7f070018;
-        public static final int formatOnSMS=0x7f07000c;
-        public static final int gpsdeactivated=0x7f070014;
-        public static final int halftank=0x7f070012;
-        public static final int incoming_call=0x7f07000e;
-        public static final int lowbattery=0x7f07000f;
-        public static final int odometer=0x7f070016;
-        public static final int pause=0x7f07000a;
-        public static final int pauseFinished=0x7f07000b;
-        public static final int quartertank=0x7f070013;
-        public static final int startTrip=0x7f070006;
-        public static final int stopTrip=0x7f070007;
-        public static final int tankFixed=0x7f07001f;
-        public static final int timeforpause=0x7f070015;
-        public static final int toofast=0x7f070010;
-        public static final int unknownContact=0x7f07000d;
-        public static final int vitesse=0x7f070002;
-        public static final int vitesse_max=0x7f070004;
+        public static final int btnstarttrip=0x7f080017;
+        public static final int btnstoptrip=0x7f080018;
+        public static final int formatOnSMS=0x7f08000c;
+        public static final int gpsdeactivated=0x7f080014;
+        public static final int halftank=0x7f080012;
+        public static final int incoming_call=0x7f08000e;
+        public static final int lowbattery=0x7f08000f;
+        public static final int odometer=0x7f080016;
+        public static final int pause=0x7f08000a;
+        public static final int pauseFinished=0x7f08000b;
+        public static final int quartertank=0x7f080013;
+        public static final int startTrip=0x7f080006;
+        public static final int stopTrip=0x7f080007;
+        public static final int tankFixed=0x7f080021;
+        public static final int timeforpause=0x7f080015;
+        public static final int toofast=0x7f080010;
+        public static final int unknownContact=0x7f08000d;
+        public static final int vitesse=0x7f080002;
+        public static final int vitesse_max=0x7f080004;
+        public static final int welcome=0x7f080020;
     }
     public static final class style {
         /**  Base application theme. 
  Customize your theme here. 
          */
-        public static final int AppTheme=0x7f080000;
+        public static final int AppTheme=0x7f090000;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

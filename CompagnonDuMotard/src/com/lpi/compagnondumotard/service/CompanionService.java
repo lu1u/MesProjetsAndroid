@@ -49,7 +49,8 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	public static final int TYPEALARME_RIEN = 0;
 	public static final int TYPEALARME_PAUSE = 1;
 	public static final int TYPEALARME_HEURE = 2;
-	private static final String[] COLONNES_NUMERO = new String[] { PhoneLookup.DISPLAY_NAME } ;
+	private static final String[] COLONNES_NUMERO = new String[]
+	{ PhoneLookup.DISPLAY_NAME };
 	private int etatService = Constants.ETAT_ARRETE;
 
 	// Preferences
@@ -81,12 +82,12 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 				@Override
 				public void onReceive(Context context, Intent intent)
 				{
-					OnServiceReceive(context, intent);
+					onServiceReceive(context, intent);
 				}
 			}, intentFilter);
 
 			// Affiche une icone de notification pour montrer qu'on est la
-			IconeNotification(true);
+			notificationIcon(true);
 			// LoadState() ;
 			if (etatService == Constants.ETAT_ENROUTE)
 				restart(getApplicationContext(), data);
@@ -103,11 +104,10 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	/*
 	 * Affiche une icone et un message dans la barre de notification
 	 */
-	private void IconeNotification(boolean b)
+	private void notificationIcon(boolean trajetDemarre)
 	{
-
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		String message = getString(b ? R.string.TrajetDemarre : R.string.TrajetArrete);
+		String message = getString(trajetDemarre ? R.string.TrajetDemarre : R.string.TrajetArrete);
 
 		Notification notification = new Notification(R.drawable.ic_stat_notification, message,
 				System.currentTimeMillis());
@@ -222,7 +222,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	/***
 	 * Reception d'un SMS
 	 */
-	public void OnSMS()
+	public void onSMS()
 	{
 		Log.debug("OnSMS"); //$NON-NLS-1$
 		PersistentData data = new PersistentData(this);
@@ -273,7 +273,8 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		try
 		{
 			Cursor c = getContentResolver().query(
-					Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(numero)), COLONNES_NUMERO, null, null, null);
+					Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(numero)), COLONNES_NUMERO, null,
+					null, null);
 			c.moveToFirst();
 			res = c.getString(c.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME));
 			c.close();
@@ -303,12 +304,12 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	 * @param intent
 	 *            : Intent recu
 	 */
-	protected void OnServiceReceive(Context context, Intent intent)
+	protected void onServiceReceive(Context context, Intent intent)
 	{
 		String action = intent.getAction();
-		Log.debug("OnServiceReceive " + action ); //$NON-NLS-1$
+		Log.debug("OnServiceReceive " + action); //$NON-NLS-1$
 		PersistentData data = new PersistentData(this);
-		
+
 		if (action.equals(Constants.TIME_UPDATE))
 			announceHour(context, data);
 		else if (action.equals(Constants.PAUSE_UPDATE))
@@ -345,15 +346,15 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 			break;
 
 		case Constants.COMMAND_GETSTATE:
-			GetState(data);
+			getState(data);
 			break;
 
 		case Constants.COMMAND_PLEIN:
-			Plein(data);
+			refillTank(data);
 			break;
 
 		case Constants.COMMAND_PAUSE:
-			Pause(intent, data);
+			pause(intent, data);
 			break;
 
 		default:
@@ -366,7 +367,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	 *
 	 * @param intent
 	 */
-	private void Pause(Intent intent, PersistentData data)
+	private void pause(Intent intent, PersistentData data)
 	{
 		final boolean enPause = intent.getBooleanExtra(Constants.COMMAND_PAUSE_STATE, false);
 		if (enPause)
@@ -387,12 +388,24 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		}
 	}
 
-	private void Plein(PersistentData data)
+	/**
+	 * Bouton "plein d'essence"
+	 * 
+	 * @param data
+	 */
+	private void refillTank(PersistentData data)
 	{
 		Preferences pref = new Preferences(this);
-		tts.AnnonceVocale(this, R.string.tankFixed, Long.valueOf(pref.getAutonomieReservoir() / 1000l));
-		data._DistanceParcourue = 0;
+		data._Autonomie = pref.getAutonomieReservoir();
 		data._modifie = true;
+		tts.AnnonceVocale(this, R.string.tankFixed, Long.valueOf(pref.getAutonomieReservoir()));
+
+		// Mettre a jour l'UI
+		Intent broadcastIntent = new Intent();
+		broadcastIntent.setAction(Constants.KILOMETER_CHANGE);
+		broadcastIntent.putExtra(Constants.PARCOURU, data._DistanceParcourue);
+		broadcastIntent.putExtra(Constants.AUTONOMIE, data._Autonomie);
+		sendBroadcast(broadcastIntent);
 	}
 
 	/**
@@ -400,7 +413,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	 *
 	 * @param data
 	 */
-	private void GetState(PersistentData data)
+	private void getState(PersistentData data)
 	{
 		// Log.d(Constants.TAG, "CommandGetState " + etatService) ;
 		Intent broadcastIntent = new Intent(); // , TableauDeBordActivity.class);
@@ -435,7 +448,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		tts.AnnonceVocale(this, R.string.stopTrip);
 		tts.flushAnnonces();
 		StopServices();
-		IconeNotification(false);
+		notificationIcon(false);
 
 		// Fermer le service, puisqu'il ne sert plus a rien
 		// stopSelf() ;
@@ -443,6 +456,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 
 	/**
 	 * Demarrer le trajet
+	 * 
 	 * @param data
 	 */
 	private void start(PersistentData data)
@@ -451,7 +465,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		Preferences pref = new Preferences(this);
 
 		tts.AnnonceVocale(this, R.string.startTrip, Long.valueOf(pref.getAutonomieReservoir()));
-		RazParcours(data);
+		resetTrip(data);
 		InitServices(data);
 	}
 
@@ -623,7 +637,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	/**
 	 * Remise à zero du parcours
 	 */
-	private void RazParcours(PersistentData data)
+	private void resetTrip(PersistentData data)
 	{
 
 		long Now = System.currentTimeMillis();
@@ -656,7 +670,6 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	@Override
 	public void onLocationChanged(Location ici)
 	{
-		Log.debug("OnLocationChanged"); //$NON-NLS-1$
 		Location dernieresPositions[] = new Location[PersistentData.NB_POSITIONS_VITESSE];
 		PersistentData data = new PersistentData(this);
 		int iDernieresPositions = data.LitDernieresPositions(this, dernieresPositions);
@@ -678,19 +691,23 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		Preferences pref = new Preferences(this);
 
 		calcTripLength(dernieresPositions, iDernieresPositions, pref, data);
-		
+
 		final long vitesseMax = pref.getVitesseMax();
 		if (vitesseMax > 0)
 		{
-			speed(vitesseMax, data);
+			speedTest(vitesseMax, data);
 		}
 
+		data.Flush(this);
 	}
 
-	/**
+	/***
 	 * Lance une alerte si la vitesse est excessive
+	 * 
+	 * @param vitesseMax
+	 * @param data
 	 */
-	private void speed(long vitesseMax, PersistentData data)
+	private void speedTest(long vitesseMax, PersistentData data)
 	{
 		Location dernieresPositions[] = new Location[PersistentData.NB_POSITIONS_VITESSE];
 		int iDernieresPositions = data.LitDernieresPositions(this, dernieresPositions);
@@ -698,6 +715,8 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		Location ici = dernieresPositions[iDernieresPositions - 1];
 
 		final float temps = Math.abs(ici.getTime() - dernieresPositions[0].getTime()) / 1000.f;
+
+		// Calcule de la distance totale entre les n dernieres positions
 		float distance = 0;
 		for (int i = 0; i < iDernieresPositions - 1; i++)
 		{
@@ -706,6 +725,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 
 		final float vitesse = (distance / temps);
 		final int vitesseKmH = Math.round(vitesse * 3.6f);
+		// Log.debug("Vitesse " + vitesseKmH + " km/h");
 
 		if (vitesse > vitesseMax)
 			if ((ici.getTime() - data._DerniereAlerteVitesse) > 5000)
@@ -730,43 +750,44 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 	private void calcTripLength(Location[] dernieresPositions, int iDernieresPositions, Preferences pref,
 			PersistentData data)
 	{
-		long distanceParcourue = data._DistanceParcourue;
-		distanceParcourue += dernieresPositions[iDernieresPositions - 1]
+		final long derniereDistance = (long) dernieresPositions[iDernieresPositions - 1]
 				.distanceTo(dernieresPositions[iDernieresPositions - 2]);
-		
-		long autonomieReservoir = pref.getAutonomieReservoir() * 1000;
+		final long distanceParcourue = data._DistanceParcourue + derniereDistance;
+		data._Autonomie -= derniereDistance;
+		data._modifie = true;
 
-		if (distanceParcourue >= (autonomieReservoir / 2))
+		final long autonomieReservoir = pref.getAutonomieReservoir() * 1000;
+
+		// Demi reservoir
+		if (data._Autonomie <= (autonomieReservoir / 2))
 			if (pref.isAlerteDemiReservoir())
 				if (!data._AnnonceDemiReservoir)
 				{
 					tts.AnnonceVocale(this, R.string.halftank);
 					data._AnnonceDemiReservoir = true;
-					data._modifie = true;
 				}
 
-		if (distanceParcourue >= (autonomieReservoir * 3L / 4L))
+		// Quart de reservoir
+		if (data._Autonomie <= (autonomieReservoir / 4L))
 			if (pref.isAlerteQuartReservoir())
 				if (!data._AnnonceQuartReservoir)
 				{
 					tts.AnnonceVocale(this, R.string.quartertank);
 					data._AnnonceQuartReservoir = true;
-					data._modifie = true;
 				}
-		
-		
-		if ( (distanceParcourue/1000) != (data._DistanceParcourue/1000))
+
+		// Mettre a jour l'affichage tous les 100m
+		if ((distanceParcourue / 100) != (data._DistanceParcourue / 100))
 		{
-			// On passe a un autre kilometre, mettre a jour l'UI
-			Intent broadcastIntent = new Intent(); 
+			// Changer l'UI tous les 100m
+			Intent broadcastIntent = new Intent();
 			broadcastIntent.setAction(Constants.KILOMETER_CHANGE);
-			broadcastIntent.putExtra(Constants.KILOMETRE, (distanceParcourue/1000));
+			broadcastIntent.putExtra(Constants.PARCOURU, data._DistanceParcourue);
+			broadcastIntent.putExtra(Constants.AUTONOMIE, data._Autonomie);
 			sendBroadcast(broadcastIntent);
 		}
-		
-		data._DistanceParcourue = distanceParcourue ;
-		data._modifie = true;
 
+		data._DistanceParcourue = distanceParcourue;
 	}
 
 	@Override
@@ -828,7 +849,7 @@ public class CompanionService extends Service implements LocationListener, TTSLi
 		// String format = getResources().getString(R.string.incoming_call) ;
 		// tts.AnnonceVocale( String.format(format, contact) );
 		tts.AnnonceVocale(this, R.string.incoming_call, contact);
-		
+
 		// TODO: trouver un moyen de refuser l'appel
 	}
 

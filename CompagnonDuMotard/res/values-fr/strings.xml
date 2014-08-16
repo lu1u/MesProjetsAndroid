@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Biker\'s companion</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Compagnon du Motard</string>
+    <string name="action_settings">Paramètres</string>
 
 
     <string name="vitesse">vitesse</string>
@@ -30,7 +30,8 @@
     <string name="btnPreferences">Préférences</string>
     <string name="btnVocal">Vocal...</string>
     <string name="btnAudio">Audio...</string>
-	<string name="odometer">Kilomètres : %1$s\nAutonomie: %2$s</string>
-  	
+	<string name="odometer">Parcouru : %1$s km\nAutonomie: %2$s km</string>
+  	<string name="alertNoTTS">La fonction de synthèse vocale semble être désactivée. Elle est indispensable au bon fonctionnement de cette application. Voulez-vous l\'activer ?</string>
+  	<string name="welcome">Bienvenue dans \"Le compagnon du motard\". Choisissez vos paramètres en cliquant sur le bouton \"Préférences\", puis cliquez sur le bouton "Démarrage". Bon voyage!</string>
     
 </resources>

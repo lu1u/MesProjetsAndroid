@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
+import com.lpi.compagnondumotard.Constants;
+
 import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
@@ -79,17 +82,22 @@ public class TTSManager implements OnInitListener, OnUtteranceCompletedListener{
 
 	}
 
-	private void AnnonceVocale(String string ) {
+	private void AnnonceVocale(Context ctx, String message ) {
 		try
 		{
 			if ( _telephoneDecroche )
 				// Mettre le message en attente si le telephone est decroche
-				_pendingMessages.add(string) ;
+				_pendingMessages.add(message) ;
 			else
 				if ( _ttsInitialise )
-					_Tts.speak(string, TextToSpeech.QUEUE_ADD, params) ;
+					_Tts.speak(message, TextToSpeech.QUEUE_ADD, params) ;
 					else
-					_pendingMessages.add( string ) ;
+					_pendingMessages.add( message ) ;
+			
+			Intent broadcastIntent = new Intent(); 
+			broadcastIntent.setAction(Constants.MESSAGE);
+			broadcastIntent.putExtra(Constants.MESSAGE, message);
+			ctx.sendBroadcast(broadcastIntent);
 		}
 		catch( Exception e )
 		{
@@ -102,7 +110,7 @@ public class TTSManager implements OnInitListener, OnUtteranceCompletedListener{
 	public void AnnonceVocale(Context ctx, int resId, Object ...args )
 	{
 		String format = ctx.getResources().getString(resId) ;
-		AnnonceVocale(String.format(format, args));
+		AnnonceVocale( ctx, String.format(format, args));
 	}
 
 	private void Erreur(String text) {

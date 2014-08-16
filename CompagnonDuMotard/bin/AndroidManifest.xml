@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".TableauDeBordActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:immersive="true">
             <intent-filter>
                 <action android:name="lpi.BikersCompanion.Debug" />
                 <action android:name="lpi.BikersCompanion.Reponse" />

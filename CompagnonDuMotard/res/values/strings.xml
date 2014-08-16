@@ -24,7 +24,7 @@
     <string name="quartertank">Tank is one quarter full</string>
     <string name="gpsdeactivated">Warning, GPS deactivated</string>
   	<string name="timeforpause">It\'s time for a break</string>
-  	<string name="odometer">Kilometers : %1$s\nLeft: %2$s</string>
+  	<string name="odometer">Kilometers : %1$s, autonomy: %2$s km</string>
   	
 
     <!--- Texte des boutons de l'interface -->
@@ -37,4 +37,8 @@
     <string name="btnVocal">Speech...</string>
     <string name="btnAudio">Audio...</string>
 
+    <!--  alertes -->
+    <string name="alertNoTTS">TTS seems to be deactivated. Working TTS is needed by this application. Do you want to activate it?</string>
+    <string name="welcome">Welcome to biker\'s companion. Please choose your preferences by clicking on the \'Preferences\' button. Then click the \'Start\' button and \"Bon voyage\"</string>
+   
 </resources>
